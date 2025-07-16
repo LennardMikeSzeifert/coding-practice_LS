@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+      Pseudocode and planning:
+
+      Write the function shuffle(array) that shuffles (randomly reorders) elements of the array.
+      Multiple runs of shuffle may lead to different orders of elements.
+      Each shuffle must have equal probability for each case.
+
+      - There won't be an interface. It'll work only in the console.
+      - The input will be the following array: let arr = [1, 2, 3];
+      - The output will be the same array but the order of the array items will be shuffled.
+
+      Pseudocode:
+
+      Function decideOrder (a, b)
+      generate a random integer for a
+      generate a random integer for b
+      return a - b
+
+      arr gets the value of arr.sort(decideOrder)
+      return arr
+
+       */
+
+      function shuffle(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+          let j = Math.floor(Math.random() * (i + 1)); // random index from 0 to i
+
+          // swap elements array[i] and array[j]
+          // we use "destructuring assignment" syntax to achieve that
+          // you'll find more details about that syntax in later chapters
+          // same can be written as:
+          // let t = array[i]; array[i] = array[j]; array[j] = t
+          [array[i], array[j]] = [array[j], array[i]];
+        }
+      }
+    </script>
+  </body>
+</html>
