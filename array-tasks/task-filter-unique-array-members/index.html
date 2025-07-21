@@ -42,20 +42,17 @@
         ":-O",
       ];
 
-      // my solution
-
+      let result = [];
       function uniqueArr(arr) {
-        let result = [];
-
         for (let item of arr) {
           if (result.includes(item) !== true) {
-            result.unshift(item);
-            console.log(result);
+            result.push(item);
           }
         }
+        return result;
       }
 
-      uniqueArr(strings);
+      console.log(uniqueArr(strings));
     </script>
   </body>
 </html>
