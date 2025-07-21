@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+       Pseudocode and planning:
+
+       Create a function unique(arr) that should return an array with only the unique items of arr.
+       The array arr contains multiple duplicates. The new array must not contain any duplicates.
+
+       - There won't be an interface. It'll work only in the console.
+       - The input will be the following array: let strings = ["Hare", "Krishna", "Hare", "Krishna",
+      "Krishna", "Krishna", "Hare", "Hare", ":-O"
+       ];
+       - The output will be a copy of the array, but not containing any duplicates.
+
+       Pseudocode:
+
+       Function unique(arr)
+       Function checkDupl(arrayItem)
+       return arrayItem IF it isn't equal to any of the previous arrayItems
+
+       let uniqueArr = filter through arr with checkDupl
+       console.log uniqueArr
+
+        */
+
+      let strings = [
+        "Hare",
+        "Krishna",
+        "Hare",
+        "Krishna",
+        "Krishna",
+        "Krishna",
+        "Hare",
+        "Hare",
+        ":-O",
+      ];
+
+      function uniqueArr(arr) {
+        let result = [];
+
+        for (let item of arr) {
+          if (result.includes(item) !== true) {
+            result.unshift(item);
+            console.log(result);
+          }
+        }
+      }
+
+      uniqueArr(strings);
+    </script>
+  </body>
+</html>
