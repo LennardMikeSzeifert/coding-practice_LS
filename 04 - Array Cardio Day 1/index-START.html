@@ -112,9 +112,24 @@
         return total + (current.passed - current.year);
       }, 0);
 
-      console.log(sumInventorsLifes);
+      // console.log(sumInventorsLifes);
 
       // 5. Sort the inventors by years lived
+
+      // 1.Solution
+
+      const inventorsLivedLongest = inventors.sort((a, b) => {
+        return b.passed - b.year - (a.passed - a.year);
+      });
+
+      // 2.Solution
+      const inventorsLivedLongest = inventors.sort((a, b) => {
+        const aLived = a.passed - a.year;
+        const bLived = b.passed - b.year;
+        return bLived - aLived;
+      });
+
+      // console.log(inventorsLivedLongest);
 
       // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
       // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
