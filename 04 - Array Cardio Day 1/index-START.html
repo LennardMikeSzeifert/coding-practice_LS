@@ -100,10 +100,10 @@
 
       // 2. solution
       /*
-      const oldestToYoungest = inventors.sort((firstInventor, nextInventor) => {
-        return firstInventor.year > nextInventor.year ? 1 : -1;
-      });
-      */
+            const oldestToYoungest = inventors.sort((firstInventor, nextInventor) => {
+              return firstInventor.year > nextInventor.year ? 1 : -1;
+            });
+            */
       // console.table(oldestToYoungest);
       // Array.prototype.reduce()
       // 4. How many years did all the inventors live all together?
@@ -123,28 +123,40 @@
       });
 
       // 2.Solution
-      const inventorsLivedLongest = inventors.sort((a, b) => {
-        const aLived = a.passed - a.year;
-        const bLived = b.passed - b.year;
-        return bLived - aLived;
-      });
-
+      /*
+            const inventorsLivedLongest = inventors.sort((a, b) => {
+              const aLived = a.passed - a.year;
+              const bLived = b.passed - b.year;
+              return bLived - aLived;
+            });
+          */
       // console.log(inventorsLivedLongest);
 
       // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
       // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
+      /*
+            const category = document.querySelector(`.mw-category`);
+            const links = Array.from(category.querySelectorAll(`a`));
 
-      const category = document.querySelector(`.mw-category`);
-      const links = Array.from(category.querySelectorAll(`a`));
+            const boulevards = links.map((link) => link.textContent);
 
-      const boulevards = links.map((link) => link.textContent);
-
-      const de = boulevards.filter((boulevard) => boulevard.includes(`de`));
-
-      console.log(de);
+            const de = boulevards.filter((boulevard) => boulevard.includes(`de`));
+      */
+      // console.log(de);
 
       // 7. sort Exercise
       // Sort the people alphabetically by last name
+
+      // let sortedLastName = people.sort((a, b) => (a > b ? 1 : -1));
+      // console.table(sortedLastName);
+
+      let sortedLastName = people.sort(function (a, b) {
+        let firstSplit = a.split(`, `);
+        let secondSplit = b.split(`, `);
+        return firstSplit[0] > secondSplit[0] ? 1 : -1;
+      });
+
+      // console.table(sortedLastName);
 
       // 8. Reduce Exercise
       // Sum up the instances of each of these
