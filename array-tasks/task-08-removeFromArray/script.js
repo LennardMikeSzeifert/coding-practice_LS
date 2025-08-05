@@ -33,3 +33,12 @@ Set indexToDelete to arr.findIndex(item => item === itemToDelete)
 return array using `.splice(indexToDelete, 1)` method 
 
 */
+
+function removeFromArray(arr, itemToDelete) {
+  arr.splice(
+    arr.findIndex((item) => item === itemToDelete),
+    1
+  );
+  return arr;
+}
+console.log(removeFromArray([1, 2, 3, 4], 3));
