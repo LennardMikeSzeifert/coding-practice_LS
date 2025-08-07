@@ -56,4 +56,4 @@ function sumAll(bottomLimitNumber, topLimitNumber) {
   return arrayNumbersSum;
 }
 
-console.log(sumAll(2, 5));
+console.log(sumAll(1, 4));
