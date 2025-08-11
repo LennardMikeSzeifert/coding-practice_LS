@@ -9,39 +9,54 @@ Does your program have a user interface? What will it look like? What functional
 
 What inputs will your program have? Will the user enter data or will you get input from somewhere else?
 
-- The input will be two arguments: the bottom limit number and the top limit number.
+- The input will be a number reprsenting the year to be checked as a leapYear.
 
 What’s the desired output?
 
-- The output will be the sum of all numbers in between the bottom and top limit numbers including the limits.
+- The output will be a Boolean either defining if the year is a leap year or not.
 
 Given your inputs, what are the steps necessary to return the desired output?
 
-- Write a function that takes two arguments: the bottom limit number and the top limit number.
+- Write a function that takes one argument: a number defining the year to be checked
 - Inside the function:
-- Set the variable numbersArray to [].
-- Create a loop that starts at the bottom limit number 
-and increments that number with each iteration until it reaches the top limit number. 
-With each iteration add that number to numbersArray using the `.push()` method.
-- Set the variable arrayNumbersSum to numberArray.reduce((total, currentNumber) => total += currentNumber, bottomLimitNumber)
-- return the total.
-
+- If the input is not a number return error
+ - If the number if divided by 4 returns a rest of 0 
+AND the number if divided by 100 returns a rest greater than 0 AND the number if divided by 400 returns a rest of 0
+-> return true
+- else return false
 
 Pseudocode:
 
-Function sumAll(bottomLimitNumber, topLimitNumber)
-Set let numbersArray to []
-
-FOR set i to bottomLimitNumber
-End loop when i is greater than topLimitNumber
-Increment i after each iteration
-And unshift i to numbersArray
-ENDFOR
-
-Set the variable arrayNumbersSum to numbersArray.reduce((total, currentNumber) => total += currentNumber, bottomLimitNumber)
-return arrayNumbersSum
-
+Function isLeapYear(year)
+IF year is not a number OR a negative number return `Error! Please enter a number greater than 0!`
+ELSE IF year divided by 100 returns a rest of 0 AND year divided by 400 returns a rest of 0 return true
+ELSE IF year divided by 100 returns a rest of 0 AND year divided by 400 returns a rest greater than 0 return false
+ELSE 
+IF year divided by 4 returns no rest return true
+ESLE return false
 
 */
 
 // My solution
+
+function isLeapYear(year) {
+  if (!Number.isInteger(year) || year < 0) {
+    return `Error! Please enter a number greater than 0!`;
+  }
+  // check if even century
+  else if (year % 100 === 0 && year % 400 === 0) {
+    return true;
+  } else if (year % 100 == 0 && year % 400 !== 0) {
+    return false;
+  }
+  // if not check leap
+  else {
+    if (year % 4 === 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+}
+
+console.log(isLeapYear(1000));
