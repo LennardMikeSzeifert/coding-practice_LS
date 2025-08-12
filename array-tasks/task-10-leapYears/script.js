@@ -46,7 +46,7 @@ function isLeapYear(year) {
   // check if even century
   else if (year % 100 === 0 && year % 400 === 0) {
     return true;
-  } else if (year % 100 == 0 && year % 400 !== 0) {
+  } else if (year % 100 === 0 && year % 400 !== 0) {
     return false;
   }
   // if not check leap
