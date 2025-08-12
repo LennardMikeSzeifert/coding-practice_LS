@@ -39,24 +39,41 @@ ESLE return false
 
 // My solution
 
+// function isLeapYear(year) {
+//   if (!Number.isInteger(year) || year < 0) {
+//     return `Error! Please enter a number greater than 0!`;
+//   }
+//   // check if even century
+//   else if (year % 100 === 0 && year % 400 === 0) {
+//     return true;
+//   } else if (year % 100 === 0 && year % 400 !== 0) {
+//     return false;
+//   }
+//   // if not check leap
+//   else {
+//     if (year % 4 === 0) {
+//       return true;
+//     } else {
+//       return false;
+//     }
+//   }
+// }
+
+// console.log(isLeapYear(1000));
+
+// Original task solution
+
 function isLeapYear(year) {
   if (!Number.isInteger(year) || year < 0) {
-    return `Error! Please enter a number greater than 0!`;
+    return "Error! Please enter a number greater than 0!";
   }
-  // check if even century
-  else if (year % 100 === 0 && year % 400 === 0) {
-    return true;
-  } else if (year % 100 === 0 && year % 400 !== 0) {
-    return false;
-  }
-  // if not check leap
-  else {
-    if (year % 4 === 0) {
-      return true;
-    } else {
-      return false;
-    }
-  }
+
+  const isYearDivisibleByFour = year % 4 === 0;
+  const isCentury = year % 100 === 0;
+  const isYearDivisibleByFourHundred = year % 400 === 0;
+
+  return isYearDivisibleByFour && (!isCentury || isYearDivisibleByFourHundred);
 }
 
-console.log(isLeapYear(1000));
+console.log(isLeapYear(2000)); // true
+console.log(isLeapYear(1900)); // false
