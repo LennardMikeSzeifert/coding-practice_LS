@@ -38,3 +38,17 @@ return the result rounded up to one decimal place
 */
 
 // My solution
+
+function toFahrenheit(celsius) {
+  let result = celsius * 1.8 + 32;
+  return result.toFixed(1) + `°F`;
+}
+
+toFahrenheit(20);
+
+function toCelsius(fahrenheit) {
+  let result = (fahrenheit - 32) * 0.555555556;
+  return result.toFixed(1) + `°C`;
+}
+
+toCelsius(68);
