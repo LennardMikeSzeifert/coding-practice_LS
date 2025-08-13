@@ -9,31 +9,31 @@ Does your program have a user interface? What will it look like? What functional
 
 What inputs will your program have? Will the user enter data or will you get input from somewhere else?
 
-- The input will be a number reprsenting the year to be checked as a leapYear.
+- The input will be a number reprsenting the temperature to be converted to either celsius or fahrenheit.
 
 What’s the desired output?
 
-- The output will be a Boolean either defining if the year is a leap year or not.
+- The output will be the input temperature converted to either fahrenheit or celsius.
 
 Given your inputs, what are the steps necessary to return the desired output?
 
-- Write a function that takes one argument: a number defining the year to be checked
-- Inside the function:
-- If the input is not a number return error
- - If the number if divided by 4 returns a rest of 0 
-AND the number if divided by 100 returns a rest greater than 0 AND the number if divided by 400 returns a rest of 0
--> return true
-- else return false
+- Write two functions that take one argument each: a number representing the temperature to be converted.
+- Inside the function toFahrenheit:
+    - multiply celius using the toFahrenheit formula and return the result rounded up to one decimal place.
+- Inside the function toCelsius: 
+    - divide fahrenheit using the toCelsius formula and return the result rounded up to one decimal place.
 
 Pseudocode:
 
-Function isLeapYear(year)
-IF year is not a number OR a negative number return `Error! Please enter a number greater than 0!`
-ELSE IF year divided by 100 returns a rest of 0 AND year divided by 400 returns a rest of 0 return true
-ELSE IF year divided by 100 returns a rest of 0 AND year divided by 400 returns a rest greater than 0 return false
-ELSE 
-IF year divided by 4 returns no rest return true
-ESLE return false
+Function toFahrenheit(celsius)
+(celsius + 32) × ⁠0.555555556
+return the result rounded up to one decimal place
+
+
+Function toCelsius(fahrenheit)
+(fahrenheit − 32) × ⁠0.555555556
+return the result rounded up to one decimal place
+
 
 */
 
