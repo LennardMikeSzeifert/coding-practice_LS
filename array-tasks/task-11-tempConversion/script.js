@@ -39,16 +39,26 @@ return the result rounded up to one decimal place
 
 // My solution
 
-function toFahrenheit(celsius) {
-  let result = celsius * 1.8 + 32;
-  return result.toFixed(1) + `°F`;
-}
+// function toFahrenheit(celsius) {
+//   let result = celsius * 1.8 + 32;
+//   return result.toFixed(1) + `°F`;
+// }
 
-toFahrenheit(20);
+// toFahrenheit(20);
 
-function toCelsius(fahrenheit) {
-  let result = (fahrenheit - 32) * 0.555555556;
-  return result.toFixed(1) + `°C`;
-}
+// function toCelsius(fahrenheit) {
+//   let result = (fahrenheit - 32) * 0.555555556;
+//   return result.toFixed(1) + `°C`;
+// }
 
-toCelsius(68);
+// toCelsius(68);
+
+// Official solutiuon
+
+const convertToCelsius = function (fahrenheit) {
+  return Math.round((fahrenheit - 32) * (5 / 9) * 10) / 10;
+};
+
+const convertToFahrenheit = function (celsius) {
+  return Math.round(((celsius * 9) / 5 + 32) * 10) / 10;
+};
