@@ -23,15 +23,13 @@ They reflect the concepts, best practices, and insights gained while completing 
 
 ## Array.prototype.find()
 
-- `find()` returns the first array item that fulfills the given
-  function condition.
+- `find()` returns the first array item that fulfills the given function condition.
 
 ---
 
 ## Array.prototype.findIndex() and splice()
 
-- `findIndex()` returns the index of the array item that satisfies
-  the condition.
+- `findIndex()` returns the index of the array item that satisfies the condition.
 - `splice()` modifies the original array — it does not create a copy.
 
 ---
@@ -44,18 +42,15 @@ They reflect the concepts, best practices, and insights gained while completing 
 
 ## removeFromArray (first approach)
 
-- You can't copy the array to a new array using `.splice()` as it
-  only modifies the given array.
-- When using `.splice()` you can use `.findIndex()` with the function
-  directly as the starting point without storing it in a variable.
+- You can't copy the array to a new array using `.splice()` as it only modifies the given array.
+- When using `.splice()` you can use `.findIndex()` with the function directly as the starting point without storing it in a variable.
 
 ---
 
 ## removeFromArray (improved approach)
 
 - The rest parameter `...args` includes any amount of arguments.
-- To select each item you need an array method compatible with rest
-  parameters.
+- To select each item you need an array method compatible with rest parameters.
 - It is safer to not mutate the original array.
 
 ---
@@ -90,7 +85,22 @@ They reflect the concepts, best practices, and insights gained while completing 
 
 ## tempConversion (refactored)
 
-- Using `5/9` instead of `0.555555556` improves readability and
-  avoids rounding drift.
-- `Math.round(... * 10) / 10` keeps the result numeric while rounding
-  to one decimal.
+- Using `5/9` instead of `0.555555556` improves readability and avoids rounding drift.
+- `Math.round(... * 10) / 10` keeps the result numeric while rounding to one decimal.
+
+---
+
+## Commit conventions — setup commits
+
+- For setting up base files (like README.md, index.html, or script.js), it is best practice to use chore instead of feat.
+
+- feat should be reserved for commits that add actual user-facing functionality.
+
+---
+
+## DOM manipulation tasks
+
+- When altering text with `text.textContent`, use `=` to assign the text instead of wrapping it in `("")`.
+  e.g. para.textContent = "Hey I'm red!";
+
+---
