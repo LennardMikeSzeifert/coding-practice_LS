@@ -102,5 +102,7 @@ They reflect the concepts, best practices, and insights gained while completing 
 
 - When altering text with `text.textContent`, use `=` to assign the text instead of wrapping it in `("")`.
   e.g. para.textContent = "Hey I'm red!";
+- The syntax to change the color property of an HTML element
+  through JavaScript is `var.style.color = "color"`.
 
 ---
