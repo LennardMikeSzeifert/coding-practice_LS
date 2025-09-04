@@ -105,9 +105,11 @@ They reflect the concepts, best practices, and insights gained while completing 
 - The syntax to change the color property of an HTML element
   through JavaScript is `var.style.color = "color"`.
 - `appendChild()` only accepts one node at a time, e.g.:
-  ```js
   div.appendChild(para);
   div.appendChild(header);
-  ```
+- To change multiple css styles at once using DOM-manipulation:
+  div.style.cssText = "color: blue; background: white;";
+  or
+  div.setAttribute("style", "color: blue; background: white;");
 
 ---
