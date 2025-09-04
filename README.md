@@ -1,6 +1,6 @@
 # 🗓️ Daily Web Dev Challenges
 
-Welcome to my daily coding practice repository!  
+Welcome to my coding practice repository!  
 This is where I sharpen my **problem-solving skills**, deepen my **JavaScript knowledge**, and explore **full-stack web development concepts** — one challenge at a time.
 
 ---
