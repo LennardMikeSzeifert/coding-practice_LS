@@ -104,5 +104,10 @@ They reflect the concepts, best practices, and insights gained while completing 
   e.g. para.textContent = "Hey I'm red!";
 - The syntax to change the color property of an HTML element
   through JavaScript is `var.style.color = "color"`.
+- `appendChild()` only accepts one node at a time, e.g.:
+  ```js
+  div.appendChild(para);
+  div.appendChild(header);
+  ```
 
 ---
