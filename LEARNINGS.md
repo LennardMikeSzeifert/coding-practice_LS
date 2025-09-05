@@ -102,14 +102,27 @@ They reflect the concepts, best practices, and insights gained while completing 
 
 - When altering text with `text.textContent`, use `=` to assign the text instead of wrapping it in `("")`.
   e.g. para.textContent = "Hey I'm red!";
+
 - The syntax to change the color property of an HTML element
   through JavaScript is `var.style.color = "color"`.
+
 - `appendChild()` only accepts one node at a time, e.g.:
   div.appendChild(para);
   div.appendChild(header);
+
 - To change multiple css styles at once using DOM-manipulation:
   div.style.cssText = "color: blue; background: white;";
   or
   div.setAttribute("style", "color: blue; background: white;");
+
+- In an event listener callback, the parameter (commonly e or event)
+  is the Event object automatically passed by JavaScript.
+  It contains useful properties and methods (e.g. e.target) that reference
+  the DOM node triggering the event. Example:
+
+<!-- btn.addEventListener("click", function (e) {
+console.log(e.target); // logs the clicked element
+e.target.style.background = "blue"; // changes its style
+}); -->
 
 ---
