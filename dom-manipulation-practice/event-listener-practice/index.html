@@ -7,6 +7,18 @@
     <script type="module" src="script.js"></script>
   </head>
   <body>
-    <button onclick="alert('Hello World')">Click Me</button>
+    <!-- Method 1 -->
+    <!-- <button onclick="alert('Hello World')">Click Me</button>-->
+
+    <!-- This solution is less than ideal 
+     because we’re cluttering our HTML with JavaScript. 
+     Also, we can only set one “onclick” property per DOM element, 
+     so we’re unable to run multiple separate functions 
+     in response to a click event using this method.
+     -->
+
+    <!-- Method 2 & 3 -->
+
+    <button id="btn">Click Me</button>
   </body>
 </html>
