@@ -5,6 +5,41 @@ They reflect the concepts, best practices, and insights gained while completing 
 
 ---
 
+## Best practice after handling input\*\*
+
+- After processing an input value (e.g., clicking a button), clear the input so it’s ready for new text.
+- Example:
+  ```js
+  button.addEventListener("click", () => {
+    console.log(input.value);
+    input.value = ""; // clear input
+  });
+  ```
+
+---
+
+## The `.focus()` method
+
+`input.focus()` moves the cursor into the input field.
+
+It’s useful for guiding user interaction (e.g., focusing the first field of a form).
+
+const input = document.querySelector("#item");
+`input.focus()`; // cursor is now active in the input box
+
+---
+
+## Working with `<input>` elements
+
+- An `<input>` element is represented as a DOM object in JavaScript.
+- The text typed into an input is stored in the `.value` property.
+  ```js
+  const input = document.querySelector("#item");
+  console.log(input.value); // logs whatever the user typed
+  ```
+
+---
+
 ## Best practices for DOM & CSS manipulation
 
 - Avoid mixing CSS and JS by setting inline styles directly with JavaScript.
@@ -64,6 +99,8 @@ They reflect the concepts, best practices, and insights gained while completing 
 - `appendChild()` only accepts one node at a time, e.g.:
   div.appendChild(para);
   div.appendChild(header);
+
+- To append multiple elements at once use `element.append()`
 
 - To change multiple css styles at once using DOM-manipulation:
   div.style.cssText = "color: blue; background: white;";
