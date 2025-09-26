@@ -5,6 +5,31 @@ They reflect the concepts, best practices, and insights gained while completing 
 
 ---
 
+## Selecting specific children in the DOM
+
+- You can use `querySelector()` with CSS pseudo-classes to target specific children:
+
+  ```js
+  let item = document.querySelector(".list-group-item");
+  item.style.color = "red"; // selects the first matching element
+
+  let lastItem = document.querySelector(".list-group-item:last-child");
+  lastItem.style.color = "blue"; // selects the last child
+
+  let secondItem = document.querySelector(".list-group-item:nth-child(2)");
+  secondItem.style.color = "yellow"; // selects the second child
+  ```
+
+## HTMLCollection vs NodeList
+
+- `document.getElementsByClassName()` returns an **HTMLCollection**, not an array.
+- HTMLCollections **do not support array methods** like `.forEach()` directly.
+- `document.querySelectorAll()` returns a **NodeList**, which **does** support `.forEach()`.
+- To use array methods on an HTMLCollection, convert it first:
+  ```js
+  Array.from(items).forEach((item) => (item.style.backgroundColor = "red"));
+  ```
+
 ## Best practice after handling input\*\*
 
 - After processing an input value (e.g., clicking a button), clear the input so it’s ready for new text.
