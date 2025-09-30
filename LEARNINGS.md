@@ -5,6 +5,26 @@ They reflect the concepts, best practices, and insights gained while completing 
 
 ---
 
+## Inserting elements
+
+- You can insert an element before another element using `insertBefore()`.
+- Syntax:
+
+  ```js
+  container.insertBefore(newDiv, h1);
+  ```
+
+  The first parameter (newDiv) is the element you want to insert.
+  The second parameter (h1) is the element before which the new element will be inserted.
+
+## Scoped querySelector usage
+
+- You can make a `querySelector` more specific by scoping it inside another element.
+- Example:
+  ```js
+  let container = document.querySelector("header .container");
+  ```
+
 ## Selecting specific children in the DOM
 
 - You can use `querySelector()` with CSS pseudo-classes to target specific children:
