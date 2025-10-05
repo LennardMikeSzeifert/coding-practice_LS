@@ -5,6 +5,27 @@ They reflect the concepts, best practices, and insights gained while completing 
 
 ---
 
+## HTML Select Element
+
+- The `<select>` element creates a dropdown list for user choices.
+- Each `<option>` inside it defines a single selectable item.
+
+## Mouse events: mouseover/mouseout vs. mouseenter/mouseleave
+
+- `mouseover` and `mouseout`:
+
+  - Fire when the mouse enters or leaves **an element or any of its children**.
+  - Example: if you have a `div` with an `h3` inside, moving from the `div` into the `h3` will trigger both `mouseover` and `mouseout` on the parent `div`.
+
+- `mouseenter` and `mouseleave`:
+  - Fire only when the mouse enters or leaves **the element itself**, not its children.
+  - Example: with the same `div` and `h3`, moving into the `h3` will not retrigger the parent `div`'s `mouseenter` or `mouseleave`.
+
+**Summary:**
+
+- `mouseover/mouseout`: sensitive to children.
+- `mouseenter/mouseleave`: only care about the parent element.
+
 ## Inserting elements
 
 - You can insert an element before another element using `insertBefore()`.
