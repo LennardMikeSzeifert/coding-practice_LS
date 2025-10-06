@@ -81,6 +81,7 @@ itemList.parentElement.parentElement.parentElement.style.backgroundColor = "ligh
 
 // new element
 
+/*
 let newDiv = document.createElement("div");
 
 console.log(newDiv);
@@ -110,3 +111,83 @@ let container = document.querySelector("header .container");
 let h1 = document.querySelector("header h1");
 
 container.insertBefore(newDiv, h1);
+*/
+
+// PT. 3 //
+
+// EVENTS
+
+/*
+const button = document
+  .getElementById("button")
+  .addEventListener("click", buttonClick);
+
+function buttonClick(e) {
+  //   console.log(e.type);
+  //   console.log(e.clientX);
+  //   console.log(e.offsetY);
+//   console.log(e.altKey);
+//   console.log(e.shiftKey);
+}
+*/
+
+// MOUSE EVENTS
+
+/*
+let box = document.querySelector(".box");
+
+// box.addEventListener("mouseover", runEvent);
+// box.addEventListener("mouseup", runEvent);
+// box.addEventListener("mousedown", runEvent);
+// box.addEventListener("dblclick", runEvent);
+
+// box.addEventListener("mouseout", runEvent);
+// box.addEventListener("mouseleave", runEvent);
+// box.addEventListener("mouseover", runEvent);
+// box.addEventListener("mouseenter", runEvent);
+box.addEventListener("mousemove", runEvent);
+
+// function runEvent(e) {
+//   console.log("EVENT TYPE: " + e.type);
+// }
+
+function runEvent(e) {
+  document.body.style.backgroundColor = `rgb(${e.offsetY}, ${e.offsetX}, 40)`;
+}
+*/
+
+// KEYEVENTS
+
+/*
+
+let inputItem = document.querySelector('input[type ="text"]');
+
+// inputItem.addEventListener("keypress", runEvent);
+// inputItem.addEventListener("input", runEvent);
+// inputItem.addEventListener("paste", runEvent);
+// inputItem.addEventListener("focus", runEvent);
+// inputItem.addEventListener("blur", runEvent);
+
+// let selectItem = document.querySelector("select");
+// selectItem.addEventListener("change", runEvent);
+
+let form = document.querySelector("form");
+
+form.addEventListener("submit", runEvent);
+
+function runEvent(e) {
+  console.log("EVENT TYPE: " + e.type);
+  e.preventDefault();
+}
+
+// let output = document.createElement("p");
+
+// let box = document.querySelector(".box");
+
+// let body = document.querySelector("body");
+
+// let container = document.querySelector(".container");
+
+// container.append(output);
+
+*/
