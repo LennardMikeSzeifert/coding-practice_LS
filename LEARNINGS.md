@@ -5,6 +5,31 @@ They reflect the concepts, best practices, and insights gained while completing 
 
 ---
 
+## Scoped `querySelector()` usage
+
+- You can replace `document` with any element variable to search only inside that element.
+- The variable becomes the new “starting point” for the selector search.
+- This limits the scope and avoids affecting elements outside that section.
+
+## Removing parent elements in the DOM
+
+- When you use `e.target.parentElement.remove()`, it removes **the parent element** of the clicked item.
+- This means if the clicked element (like a delete button) is inside an `<li>`, the entire `<li>` (and the button itself) will be removed from the DOM.
+
+## `confirm()` method
+
+- The `confirm()` method shows a dialog box asking the user to confirm an action.
+- It displays a message with **OK** and **Cancel** buttons.
+- It returns a boolean value:
+  - `true` if the user clicks **OK**
+  - `false` if the user clicks **Cancel**
+
+Example:
+
+````js
+let result = confirm("Are you sure?");
+console.log(result); // true or false
+
 ## HTML Select Element
 
 - The `<select>` element creates a dropdown list for user choices.
@@ -33,10 +58,10 @@ They reflect the concepts, best practices, and insights gained while completing 
 
   ```js
   container.insertBefore(newDiv, h1);
-  ```
+````
 
-  The first parameter (newDiv) is the element you want to insert.
-  The second parameter (h1) is the element before which the new element will be inserted.
+The first parameter (newDiv) is the element you want to insert.
+The second parameter (h1) is the element before which the new element will be inserted.
 
 ## Scoped querySelector usage
 
