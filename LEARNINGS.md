@@ -5,6 +5,20 @@ They reflect the concepts, best practices, and insights gained while completing 
 
 ---
 
+## `removeEventListener()` method
+
+- You can use `removeEventListener()` to remove one or more event listeners from an element.
+- It stops the specified event from triggering its assigned function.
+- The function reference passed to `removeEventListener()` must be the **same** as the one used in `addEventListener()`.
+
+## `.children[index]` vs. `:nth-child()`
+
+- `.children[index]` is a **JavaScript property** used to access elements by their position inside a parent node.
+  Example idea: `children[3]` gets the **fourth** child element (since counting starts at 0).
+- `:nth-child()` is a **CSS selector**, used only inside `querySelector()` or stylesheets.
+  Example idea: `:nth-child(4)` selects the **fourth** child element using CSS selector syntax.
+- `.children[index]` is used with **DOM navigation**, while `:nth-child()` is used with **CSS-style selection**.
+
 ## Scoped `querySelector()` usage
 
 - You can replace `document` with any element variable to search only inside that element.
