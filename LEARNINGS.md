@@ -5,6 +5,50 @@ They reflect the concepts, best practices, and insights gained while completing 
 
 ---
 
+## The `this` keyword
+
+- `this` refers to **the element or object that is currently “doing” the action**.
+- In an event listener, `this` usually points to **the element that triggered the event** (e.g., a clicked button).
+- Inside an object method, `this` refers to **the object itself**.
+- 💡 Think of `this` like the word _“I”_ — it always means _“the one currently speaking or acting.”_
+
+## Adding a class with JavaScript
+
+- You can add a CSS class to an element using the `.classList.add()` method.
+- Syntax: `element.classList.add('className')`
+- This is the clean way to apply new styles or animations without directly changing inline CSS.
+- Example: `button.classList.add('active')` adds the class `active` to the button.
+
+## The `.currentTime` property
+
+- `.currentTime` is a property of the **HTMLMediaElement** (used by `<audio>` and `<video>`).
+- It represents the **current playback position in seconds**.
+- You can both **read** it (to check where playback is) and **set** it (to jump to a specific point).
+- Example: `audio.currentTime = 0;` resets playback to the start — often used with `audio.play()` to replay a sound immediately.
+
+## Using template literals in `querySelector()` with attribute selectors
+
+- When using template literals with attribute selectors, always include quotes around the interpolated value.
+- Example: `` `audio[data-key="${e.code}"]` ``
+- This matches the correct CSS syntax for attributes like `data-key="KeyA"`.
+- While omitting the quotes may still work in simple cases, using quotes ensures consistency and prevents selector errors.
+
+## Setting a full-page background image with CSS
+
+- You can use the `background-image` property on the `body` to set a full-page background without needing an `<img>` tag.
+- Common settings:
+  - `background-size: cover;` → fills the screen without stretching
+  - `background-position: center;` → keeps it centered
+  - `background-repeat: no-repeat;` → prevents tiling
+- All other elements naturally appear on top of the background.
+
+## `transition` property
+
+- The `transition` property makes CSS changes happen **smoothly over time** instead of instantly.
+- It’s often used for hover effects, animations, or gradual style changes.
+- Basic syntax: `transition: property duration timing-function delay;`
+- Example idea: `transition: background-color 0.3s ease;` smoothly fades color changes.
+
 ## `removeEventListener()` method
 
 - You can use `removeEventListener()` to remove one or more event listeners from an element.
