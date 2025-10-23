@@ -5,6 +5,19 @@ They reflect the concepts, best practices, and insights gained while completing 
 
 ---
 
+## Arrow Functions
+
+- Arrow functions are a **shorter way** to write regular functions.
+- If there is **only one argument**, the parentheses `()` can be omitted.
+- If the function body is **only one line**, the curly braces `{}` can be omitted.
+- When `{}` are omitted, the function **automatically returns** the result of that line (no `return` needed).
+- Example idea: `const add = x => x + 2;` is the short form of
+  ```js
+  const add = function (x) {
+    return x + 2;
+  };
+  ```
+
 ## The `this` keyword
 
 - `this` refers to **the element or object that is currently “doing” the action**.
