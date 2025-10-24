@@ -18,17 +18,13 @@ output “rock”, “paper” or “scissors”
 */
 
 function getComputerChoice() {
-Math.floor(Math.random() _ 3) + 1 === 1;
-if (Math.floor(Math.random() _ 3) + 1 === 1) {
-return `ROCK`;
-} else if (Math.floor(Math.random() \* 3) + 1 === 2) {
-return `PAPER`;
-} else {
-return `SCISSORS`;
-}
+  const randomNumber = Math.floor(Math.random() * 3);
+  if (randomNumber === 0) return "ROCK";
+  if (randomNumber === 1) return "PAPER";
+  return "SCISSORS";
 }
 
-getComputerChoice();
+console.log(getComputerChoice());
 
 // Task 2
 
@@ -50,20 +46,16 @@ assign that number to “rock”, “paper” or “scissors”
 output “rock”, “paper” or “scissors”
 */
 
-
 function getHumanChoice() {
-userInput = prompt(`Please choose: ROCK, PAPER OR SCISSORS`);
+  let userInput = prompt(`Please choose: ROCK, PAPER OR SCISSORS`);
 
-if (userInput === `ROCK`) {
-    return `Rock`;
-}
-else if (userInput === `PAPER`) {
-    return `Paper`;
-}
-
-else {
+  if (userInput.toUpperCase() === `ROCK`) {
+    return `ROCK`;
+  } else if (userInput.toUpperCase() === `PAPER`) {
+    return `PAPER`;
+  } else {
     return `SCISSORS`;
-}
+  }
 }
 
-getHumanChoice();
+console.log(`human choice: ${getHumanChoice()}`);
