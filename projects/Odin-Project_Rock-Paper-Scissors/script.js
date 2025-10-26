@@ -1,22 +1,3 @@
-// Task 1
-
-//write a function that makes the computer randomly display “rock”, “paper” or “scissors”.
-
-/*
-
-- The program is completley played in the browser console and thus doesn't require a UI.
-- The user will input their choice of “rock”, “paper” or “scissors”. Then click "start " you ask the computer to make its choice.
-- The computer has to randomly output either “rock”, “paper” or “scissors”.
-- The user clicking start activates the random number calculation of the computer. The computer then just has to define either “rock”, “paper” or “scissors” from that number.
-
-pseudocode:
-
-When the user inputs “rock”, “paper” or “scissors”
-randomly choose a number between 1 and 3
-assign that number to “rock”, “paper” or “scissors”
-output “rock”, “paper” or “scissors”
-*/
-
 function getComputerChoice() {
   const randomNumber = Math.floor(Math.random() * 3);
   if (randomNumber === 0) return "ROCK";
@@ -24,38 +5,43 @@ function getComputerChoice() {
   return "SCISSORS";
 }
 
-console.log(getComputerChoice());
-
-// Task 2
-
-//write a function that takes the user's choice and ouputs it
-
-/*
-
-- The program is completley played in the browser console and thus doesn't require a UI.
-- The user will input their choice of “rock”, “paper” or “scissors”. Then click "start " you ask the computer to make its choice.
-- The computer has to randomly output either “rock”, “paper” or “scissors”.
-- The user clicking start activates the random number calculation of the computer. The computer then just has to define either “rock”, “paper” or “scissors” from that number.
-
-pseudocode:
-
-When the user inputs “rock”, “paper” or “scissors”
-
-randomly choose a number between 1 and 3
-assign that number to “rock”, “paper” or “scissors”
-output “rock”, “paper” or “scissors”
-*/
-
 function getHumanChoice() {
-  let userInput = prompt(`Please choose: ROCK, PAPER OR SCISSORS`);
+  let userInput = prompt(
+    `Please choose: ROCK, PAPER OR SCISSORS`
+  ).toUpperCase();
 
-  if (userInput.toUpperCase() === `ROCK`) {
+  if (userInput === `ROCK`) {
     return `ROCK`;
-  } else if (userInput.toUpperCase() === `PAPER`) {
+  } else if (userInput === `PAPER`) {
     return `PAPER`;
   } else {
     return `SCISSORS`;
   }
 }
 
-console.log(`human choice: ${getHumanChoice()}`);
+let humanScore = 0;
+let computerScore = 0;
+
+function playRound(humanChoice, computerChoice) {
+  if (
+    (humanChoice === `ROCK` && computerChoice === `SCISSORS`) ||
+    (humanChoice === `PAPER` && computerChoice === `ROCK`) ||
+    (humanChoice === `SCISSORS` && computerChoice === `PAPER`)
+  ) {
+    ++humanScore;
+    alert(
+      `YOU WIN! ${humanChoice} beats ${computerChoice}.\nYour Score: ${humanScore}. Computer's Score: ${computerScore}`
+    );
+  } else if (humanChoice === computerChoice) {
+    alert(
+      `${humanChoice} and ${computerChoice} TIE! Try again!\nYour Score: ${humanScore}. Computer's Score: ${computerScore}`
+    );
+  } else {
+    ++computerScore;
+    alert(
+      `YOU LOSE! ${computerChoice} beats ${humanChoice}.\nYour Score: ${humanScore}. Computer's Score: ${computerScore}`
+    );
+  }
+}
+
+playRound(getHumanChoice(), getComputerChoice());
