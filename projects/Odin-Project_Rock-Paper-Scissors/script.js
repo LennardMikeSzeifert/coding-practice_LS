@@ -46,7 +46,7 @@ function playGame() {
   }
   playRound(getHumanChoice(), getComputerChoice());
 
-  // Play 5 rounds
+  // Play 5 rounds // temporarily removed
 
   // for (let i = 0; i < 5; i++) {
   //   playRound(getHumanChoice(), getComputerChoice());
