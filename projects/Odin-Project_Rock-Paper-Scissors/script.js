@@ -44,26 +44,27 @@ function playGame() {
       );
     }
   }
+  playRound(getHumanChoice(), getComputerChoice());
 
   // Play 5 rounds
 
-  for (let i = 0; i < 5; i++) {
-    playRound(getHumanChoice(), getComputerChoice());
-  }
+  // for (let i = 0; i < 5; i++) {
+  //   playRound(getHumanChoice(), getComputerChoice());
+  // }
 
-  if (humanScore > computerScore) {
-    alert(
-      `YOU WIN THE GAME OF 5!\nYour Score: ${humanScore}. Computer's Score: ${computerScore}`
-    );
-  } else if (computerScore > humanScore) {
-    alert(
-      `YOU LOOSE THE GAME OF 5!\nYour Score: ${humanScore}. Computer's Score: ${computerScore}`
-    );
-  } else {
-    alert(
-      `TIED GAME OF 5!\nYour Score: ${humanScore}. Computer's Score: ${computerScore}`
-    );
-  }
+  // if (humanScore > computerScore) {
+  //   alert(
+  //     `YOU WIN THE GAME OF 5!\nYour Score: ${humanScore}. Computer's Score: ${computerScore}`
+  //   );
+  // } else if (computerScore > humanScore) {
+  //   alert(
+  //     `YOU LOOSE THE GAME OF 5!\nYour Score: ${humanScore}. Computer's Score: ${computerScore}`
+  //   );
+  // } else {
+  //   alert(
+  //     `TIED GAME OF 5!\nYour Score: ${humanScore}. Computer's Score: ${computerScore}`
+  //   );
+  // }
 }
 
 playGame();
