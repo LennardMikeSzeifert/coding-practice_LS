@@ -96,12 +96,13 @@ function playRound(humanChoice, computerChoice) {
   }
 }
 
-const buttons = document.querySelectorAll(`.buttons`);
+const buttons = document.querySelectorAll(`.btn`);
 alert(`Please click: ROCK, PAPER OR SCISSORS`);
 
 buttons.forEach((button) => {
   button.addEventListener(`click`, function getHumanChoice(e) {
     let playerSelection = e.target.innerText.toUpperCase();
+
     function getComputerChoice() {
       const randomNumber = Math.floor(Math.random() * 3);
       if (randomNumber === 0) return "ROCK";
