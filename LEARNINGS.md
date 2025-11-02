@@ -5,6 +5,68 @@ They reflect the concepts, best practices, and insights gained while completing 
 
 ---
 
+## Merging Branches in Git
+
+- Once you’re finished working on a feature branch, you can **merge** its changes into your main branch.
+- To merge, first switch to the branch you want to merge **into** (usually `main`), then use:
+  ```bash
+  git merge <branch_name>
+  ```
+- Once a branch has been merged and is no longer needed, it’s best to delete it to keep your repo clean:
+  ```bash
+  git branch -d <branch_name>   # Safe delete (only if merged)
+  git branch -D <branch_name>   # Force delete (if not merged)
+  ```
+
+## Sharing Code with Branches
+
+- Branches can also be used to **share work-in-progress code** without affecting your main project.
+- If you encounter a **bug or issue** in your feature that you can’t solve, avoid committing broken code to your main branch.
+- Instead, create a **temporary branch** to isolate your changes:
+  ```bash
+  git checkout -b help-debug
+  ```
+
+## Creating a New Branch in Git
+
+- You can create a new branch using the command:  
+  git branch branch-name
+- Once created, you can switch between branches freely using:
+  git checkout branch-name
+- To create and switch to a new branch in one step, use:
+  git checkout -b branch-name
+
+## Git Branches
+
+- Branches in Git are like **alternate timelines** or **parallel universes** for your project.
+- They let you work on **new features, experiments, or fixes** without affecting the main version of your code.
+- The `main` branch represents the **official project history**, while new branches (e.g., `feature-ui`) act as **isolated workspaces** for development.
+- Once the work in a branch is complete, it can be **merged** back into `main`, integrating your changes safely.
+- 💡 Think of branches like **different drafts of the same story** — you can explore ideas freely, and later choose which version becomes the final one.
+
+## GIT BEST PRACTICE — Commit by Logical Unit of Change
+
+When adding new features, always commit by logical unit of change, not by file type.
+
+Example:  
+If you add a new feature like displaying the score in the Rock–Paper–Scissors UI:
+
+- You add new `<div>` elements in HTML
+- You style them in CSS
+- You update JavaScript to make the scores dynamic
+
+It's best practice to make one single commit for all of that, because together they form one complete feature.
+
+## Event Listener Targeting in the DOM
+
+When adding event listeners in JavaScript, make sure to select the **individual elements** you want to listen to, not just their container.
+
+If you attach an event listener to a **container element** that wraps multiple buttons or interactive items, the event will trigger **no matter where inside that container** you click — even outside the actual buttons.
+
+To ensure each button has its own distinct behavior, you should select all buttons individually and loop through them to add event listeners.
+
+---
+
 ## Arrow Functions
 
 - Arrow functions are a **shorter way** to write regular functions.
