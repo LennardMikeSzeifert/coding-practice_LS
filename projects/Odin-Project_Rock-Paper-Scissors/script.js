@@ -72,27 +72,52 @@
 
 // PlayRound through a UI
 
+let humanScore = 0;
+let computerScore = 0;
+
 function playRound(humanChoice, computerChoice) {
-  let humanScore = 0;
-  let computerScore = 0;
+  // if (
+  //   (humanChoice === `ROCK` && computerChoice === `SCISSORS`) ||
+  //   (humanChoice === `PAPER` && computerChoice === `ROCK`) ||
+  //   (humanChoice === `SCISSORS` && computerChoice === `PAPER`)
+  // ) {
+  //   ++humanScore;
+  //   alert(
+  //     `YOU WIN! ${humanChoice} beats ${computerChoice}.\nYour Score: ${humanScore}. Computer's Score: ${computerScore}`
+  //   );
+  // } else if (humanChoice === computerChoice) {
+  //   alert(
+  //     `${humanChoice} and ${computerChoice} TIE! Try again!\nYour Score: ${humanScore}. Computer's Score: ${computerScore}`
+  //   );
+  // } else {
+  //   ++computerScore;
+  //   alert(
+  //     `YOU LOSE! ${computerChoice} beats ${humanChoice}.\nYour Score: ${humanScore}. Computer's Score: ${computerScore}`
+  //   );
+  const computerScoreDisplay = document.querySelector(`.computer-score`);
+  const humanScoreDisplay = document.querySelector(`.user-score`);
+  const gameStatus = document.querySelector(`.game-status`);
+
   if (
     (humanChoice === `ROCK` && computerChoice === `SCISSORS`) ||
     (humanChoice === `PAPER` && computerChoice === `ROCK`) ||
     (humanChoice === `SCISSORS` && computerChoice === `PAPER`)
   ) {
     ++humanScore;
-    alert(
-      `YOU WIN! ${humanChoice} beats ${computerChoice}.\nYour Score: ${humanScore}. Computer's Score: ${computerScore}`
-    );
+    humanScoreDisplay.textContent = `Your Score: ${humanScore}`;
+    computerScoreDisplay.textContent = `Computer's Score: ${computerScore}`;
+
+    gameStatus.textContent = `YOU WIN! ${humanChoice} beats ${computerChoice}.`;
   } else if (humanChoice === computerChoice) {
-    alert(
-      `${humanChoice} and ${computerChoice} TIE! Try again!\nYour Score: ${humanScore}. Computer's Score: ${computerScore}`
-    );
+    computerScoreDisplay.textContent = `Computer's Score: ${computerScore}`;
+    humanScoreDisplay.textContent = `Your Score: ${humanScore}`;
+
+    gameStatus.textContent = `${humanChoice} and ${computerChoice} TIE! Try again!`;
   } else {
     ++computerScore;
-    alert(
-      `YOU LOSE! ${computerChoice} beats ${humanChoice}.\nYour Score: ${humanScore}. Computer's Score: ${computerScore}`
-    );
+    humanScoreDisplay.textContent = `Your Score: ${humanScore}`;
+    computerScoreDisplay.textContent = `Computer's Score: ${computerScore}`;
+    gameStatus.textContent = `YOU LOSE! ${computerChoice} beats ${humanChoice}.`;
   }
 }
 
