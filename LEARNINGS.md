@@ -5,6 +5,52 @@ They reflect the concepts, best practices, and insights gained while completing 
 
 ---
 
+## The `insertAfter()` Function (Custom)
+
+- JavaScript **does not have a built-in** `insertAfter()` method like `insertBefore()`.
+- You can easily **create your own** `insertAfter()` function using `insertBefore()` together with `.nextSibling`.
+- This approach works even if the reference element is the **last child** of its parent.
+
+---
+
+Example:
+
+```js
+function insertAfter(newNode, existingNode) {
+  existingNode.parentNode.insertBefore(newNode, existingNode.nextSibling);
+}
+
+const newDiv = document.createElement("div");
+newDiv.textContent = "Inserted after!";
+
+const target = document.querySelector("#target");
+insertAfter(newDiv, target);
+```
+
+`existingNode.nextSibling` represents the element **after** the reference node (or `null` if none exists).
+
+Passing `null` to `insertBefore()` automatically **appends** the element to the end of the parent,  
+making this function safe for **all positions**.
+
+## Variable Scope and Best Practices
+
+Variables can be declared **inside** or **outside** of functions, depending on who needs access to them and how long they should exist.
+
+Global Variables (Outside Functions)
+
+- Declared **outside** of any function, they can be accessed by any part of your code.
+- Useful for values that represent a **shared or persistent state**, such as game scores or settings.  
+  **Be careful** — too many global variables can make debugging difficult since any function can modify them.
+
+Local variables prevent accidental overwrites and make functions more modular.
+
+Best Practices
+
+- Prefer `const` unless the variable’s value will change — then use `let`.
+- Default to **local variables** whenever possible.
+- Use **globals** only for shared state that needs to persist.
+- For larger projects, store global values inside a single object to avoid clutter
+
 ## Merging Branches in Git
 
 - Once you’re finished working on a feature branch, you can **merge** its changes into your main branch.
