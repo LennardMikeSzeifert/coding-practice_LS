@@ -5,6 +5,290 @@ They reflect the concepts, best practices, and insights gained while completing 
 
 ---
 
+## The `for...in` Loop in JavaScript
+
+- `for...in` is used to **iterate over all enumerable property keys** of an object.
+- It loops through keys, not values — but you can access values using bracket notation.
+- Useful for inspecting objects, logging properties, or processing dynamic key/value pairs.
+
+### Example
+
+```js
+let user = {
+  name: "John",
+  age: 30,
+  isAdmin: true,
+};
+
+for (let key in user) {
+  console.log(key); // "name", "age", "isAdmin"
+  console.log(user[key]); // "John", 30, true
+}
+```
+
+## Are Objects Ordered in JavaScript?
+
+- JavaScript objects are **ordered in a special way**:
+  - **Integer-like keys** (e.g., `"1"`, `"41"`, `"49"`) are always iterated **first**, in **ascending numeric order**.
+  - **All other keys** (non-integers) appear **in the order they were created**.
+
+### Integer-like keys
+
+A key is treated as an _integer property_ if converting it to a number and back keeps it the same:
+
+```js
+String(Math.trunc(Number("49"))); // "49"  → integer key
+String(Math.trunc(Number("+49"))); // "49" ≠ "+49" → NOT integer
+String(Math.trunc(Number("1.2"))); // "1" ≠ "1.2" → NOT integer
+```
+
+## Property Value Shorthand & Property Name Rules in JavaScript
+
+### Shorthand Properties
+
+- If variable names match property names, you can omit `key: value`.
+- Shorthand can be mixed with normal properties.
+
+```js
+function makeUser(name, age) {
+  return { name, age }; // shorthand
+}
+
+let user = {
+  name, // shorthand
+  age: 30, // normal
+};
+```
+
+### Property Name Rules
+
+Object property names can be **any string**, including reserved words and numbers.
+
+```js
+let obj = {
+  for: 1,
+  let: 2,
+  return: 3,
+  0: "test",
+};
+
+console.log(obj.for + obj.let + obj.return); // 6
+console.log(obj[0]); // "test"
+console.log(obj["0"]); // "test"
+```
+
+### Special Case: **proto**
+
+Assigning a non-object to **proto** is ignored.
+
+```js
+let obj = {};
+obj.__proto__ = 5;
+console.log(obj.__proto__); // still an object
+```
+
+## Property Existence in JavaScript (`in` Operator)
+
+- Accessing a missing property returns **undefined**, not an error.
+- `"key" in object` checks whether a property **actually exists**, even if its value is `undefined`.
+
+**Examples**
+
+```js
+// Basic existence check
+let user = {};
+console.log(user.noSuchProp === undefined); // true
+
+// Using the "in" operator
+let person = { name: "John", age: 30 };
+console.log("age" in person); // true
+console.log("blabla" in person); // false
+
+// Using a variable as the key
+let key = "age";## Property Existence in JavaScript (`in` Operator)
+
+- Accessing a missing property returns **undefined**, not an error.
+- `"key" in object` checks whether a property **actually exists**, even if its value is `undefined`.
+```
+
+**Examples**
+
+```js
+// Basic existence check
+let user = {};
+console.log(user.noSuchProp === undefined); // true
+
+// Using the "in" operator
+let person = { name: "John", age: 30 };
+console.log("age" in person); // true
+console.log("blabla" in person); // false
+
+// Using a variable as the key
+let key = "age";
+console.log(key in person); // true
+
+// Why "in" can matter
+let obj = { test: undefined };
+console.log(obj.test); // undefined (looks missing)
+console.log("test" in obj); // true (actually exists)
+```
+
+## Computed Properties in JavaScript
+
+- Computed properties let you **dynamically define object keys** using square brackets inside an object literal.
+- Instead of hardcoding property names, you can use **variables** or **expressions** to generate them.
+- `[expression]` inside an object literal means the **result of that expression becomes the property name**.
+- This is more flexible than dot notation, which only works with fixed, valid identifiers.
+- Computed properties enable dynamic object creation, cleaner syntax, and more expressive code.
+
+**Examples**
+
+```js
+// Basic computed property
+let fruit = prompt("Which fruit to buy?", "apple");
+
+let bag = {
+  [fruit]: 5, // property name comes from the variable 'fruit'
+};
+
+alert(bag.apple); // -> 5 if "apple" was entered
+
+// Equivalent expanded form without computed properties
+let fruit2 = prompt("Which fruit?", "apple");
+let bag2 = {};
+bag2[fruit2] = 5;
+
+// Computed property with expression
+let item = "apple";
+let store = {
+  [item + "Computers"]: 5, // creates: store.appleComputers = 5
+};
+
+// Why square brackets?
+// They allow:
+// - variables as keys
+// - dynamically generated names
+// - multiword or special-character property names (if the result is a string)
+```
+
+**Basic Example**
+
+```js
+let fruit = prompt("Which fruit to buy?", "apple");
+
+let bag = {
+  [fruit]: 5, // property name comes from the value of `fruit`
+};
+
+console.log(bag.apple); // 5 (if fruit = "apple")
+```
+
+## Accessing and Deleting Object Properties in JavaScript
+
+- You can access object properties in two main ways: **dot notation** and **square bracket notation**.
+- **Dot notation** is simple but only works with valid identifier names (no spaces, no special characters except `_` and `$`).
+- **Bracket notation** works with _any string_ and allows using **variables** as keys.
+- Properties can be **added**, **read**, or **deleted** using either notation.
+- Multiword property names **must** use brackets because the dot syntax cannot parse them.
+
+**Examples**
+
+```js
+// Basic object
+let user = {
+  name: "John",
+  age: 30,
+};
+
+// Access (dot notation)
+alert(user.name); // John
+alert(user.age); // 30
+
+// Add a property
+user.isAdmin = true;
+
+// Delete a property
+delete user.age;
+
+// Multiword property → must use quotes
+let user2 = {
+  name: "John",
+  "likes birds": true, // requires quotes
+};
+
+// Bracket notation (works with any key)
+user2["likes birds"] = true;
+alert(user2["likes birds"]); // true
+delete user2["likes birds"];
+
+// Using variables as keys
+let key = "name";
+alert(user[key]); // "John"
+
+// Dot notation cannot use variables
+alert(user.key); // undefined (looks for property literally named "key")
+```
+
+## What an Object Consists Of in JavaScript
+
+- An object is created using `{ ... }` and can optionally contain **properties**.
+- Each property is a **key–value pair**:
+  - **Key** → always a string (the property name)
+  - **Value** → can be anything (number, string, function, array, another object, etc.)
+
+```js
+let user = {
+  name: "Lennard",
+  age: 27,
+  isAdmin: true,
+};
+```
+
+## Creating an Empty Object in JavaScript
+
+- JavaScript provides two ways to create an empty object:
+
+  - **Object constructor syntax**
+    ```js
+    let obj = new Object();
+    ```
+  - **Object literal syntax** (most common and preferred)
+    ```js
+    let obj = {};
+    ```
+
+- The `{}` form is called an **object literal** and is used in most codebases because it’s shorter, clearer, and more idiomatic.
+
+## Why `mouseover` works but `mouseenter` does not in event delegation
+
+- `mouseover` **bubbles**, so the event moves up from the child element to the parent container.
+- Because it bubbles, a parent can listen for `mouseover` and react when any child triggers it.
+- `mouseenter` **does not bubble**, so the parent never receives the event.
+- For event delegation, always use events that bubble:
+  - **Good:** `click`, `mouseover`, `mouseout`, `keyup`, `keydown`
+  - **Not good:** `mouseenter`, `mouseleave`, `focus`, `blur`
+
+## The `git reset --hard HEAD~1` command
+
+- `git reset --hard HEAD~1` deletes the **most recent commit** from your branch.
+- It moves `HEAD` (and your branch pointer) back by one commit — as if the last commit never happened.
+- The `--hard` flag also resets your working directory and staging area to match the previous commit, **removing all changes** from that last commit.
+
+  **Useful for:**
+
+- Completely removing a bad or accidental commit.
+- Starting fresh when the last commit was a mistake.
+
+⚠️ Warning:
+This is **destructive** — you lose the commit and all its changes. Only use it if you're sure you don’t need that work anymore.
+
+## The `git remote -v` command
+
+- `git remote -v` shows all remotes connected to your local repository.
+- It lists:
+  - **Fetch URL** → where your repo pulls updates from.
+  - **Push URL** → where your repo pushes commits to.
+
 ## Keeping Feature Branches Up-to-Date (Rebasing Workflow)
 
 - Developers often do all work on **feature branches** and only update **main** when a feature is ready.
@@ -13,18 +297,18 @@ They reflect the concepts, best practices, and insights gained while completing 
 
 - Typical clean workflow:
 
-  1. Create a feature branch:  
+  1. Create a feature branch:
      `git checkout -b newFeature`
   2. Work normally on that branch.
-  3. Keep it updated:  
-     `git fetch`  
+  3. Keep it updated:
+     `git fetch`
      `git rebase origin/main`
-  4. When finished, update main:  
-     `git checkout main`  
+  4. When finished, update main:
+     `git checkout main`
      `git pull`
-  5. Merge your feature into main:  
+  5. Merge your feature into main:
      `git merge newFeature`
-  6. Push your clean main branch:  
+  6. Push your clean main branch:
      `git push`
 
 - Useful because:
@@ -40,10 +324,10 @@ They reflect the concepts, best practices, and insights gained while completing 
   - `git fetch` (get the newest changes)
   - `git merge` (add them into your current branch)
 
-- Think of it like **checking your mailbox AND immediately opening the letters and putting them on your desk**.  
+- Think of it like **checking your mailbox AND immediately opening the letters and putting them on your desk**.
   Your workspace changes right away.
 
-- Example:  
+- Example:
   `git pull origin main`
 
 - Useful for:
@@ -59,12 +343,12 @@ They reflect the concepts, best practices, and insights gained while completing 
   - New commits from the remote
   - Updated remote branches (e.g., `origin/main`)
 
-- Think of it like **checking your mailbox**:  
+- Think of it like **checking your mailbox**:
   you bring all the new letters inside, but you **don’t open them** and **don’t change anything in your house**.
 
 - This means your files stay exactly the same — you just get the latest information from GitHub.
 
-- Example:  
+- Example:
   `git fetch origin`
 
 - Useful for:
@@ -84,7 +368,7 @@ They reflect the concepts, best practices, and insights gained while completing 
 
 - Think of it like tidying your notes before submitting them — you merge, rename, and remove unnecessary pages to make everything look clean and professional.
 
-- Example:  
+- Example:
   `git rebase -i HEAD~5` lets you edit the last 5 commits.
 
 - Useful for:
@@ -116,7 +400,7 @@ Use it to bring over one or two useful changes.
 
 ## Understanding `HEAD` and Detached `HEAD` in Git
 
-`HEAD` in Git is like a **bookmark** that tells you _where you currently are_ in your project’s history.  
+`HEAD` in Git is like a **bookmark** that tells you _where you currently are_ in your project’s history.
 It points to the **latest commit** on the branch you’re working on.
 
 - When you make a new commit, `HEAD` moves forward to that new commit.
@@ -125,7 +409,7 @@ It points to the **latest commit** on the branch you’re working on.
 
 ## What happens when you `checkout <commit>`
 
-Running `git checkout <old-commit-hash>` lets you **travel back in time** to see your project exactly as it was at that commit.  
+Running `git checkout <old-commit-hash>` lets you **travel back in time** to see your project exactly as it was at that commit.
 For example, checking out a commit from _before your UI update_ will show your old version when you open it in VS Code.
 
 This is called a **detached HEAD state** — you can look around or test code safely, but if you make changes here, they’ll be lost unless you save them on a new branch.
