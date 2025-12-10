@@ -5,6 +5,37 @@ They reflect the concepts, best practices, and insights gained while completing 
 
 ---
 
+## Dynamically Adding Object Properties with Bracket Notation
+
+- **Bracket notation** allows you to set both **property values** and **property names** dynamically.
+- This is useful when property names come from **user input**, variables, or computed values.
+- Dot notation **cannot** do this — only brackets allow variable-based keys.
+
+### Example
+
+```js
+const person = {
+  name: "Bob",
+  age: 32,
+};
+
+// Dynamic property name + value
+const myDataName = "height";
+const myDataValue = "1.75m";
+
+person[myDataName] = myDataValue;
+
+console.log(person.height); // "1.75m"
+// Here, "height" becomes a new property on the object.
+
+// The same pattern works with real user input:
+
+const key = nameInput.value;
+const value = nameValue.value;
+
+person[key] = value; // dynamically creates person[key]
+```
+
 ## The `for...in` Loop in JavaScript
 
 - `for...in` is used to **iterate over all enumerable property keys** of an object.
