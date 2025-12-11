@@ -6,8 +6,6 @@ let mary = { name: "Mary", age: 28 };
 
 let users = [john, pete, mary];
 
-let names = users.map((user) => {
-  return ` ${user.name}`;
-});
+let names = users.map((user) => ` ` + user.name);
 
 alert(names); // John, Pete, Mary
