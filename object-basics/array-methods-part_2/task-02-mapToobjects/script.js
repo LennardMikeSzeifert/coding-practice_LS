@@ -4,12 +4,10 @@ let mary = { name: "Mary", surname: "Key", id: 3 };
 
 let users = [john, pete, mary];
 
-let usersMapped = users.map((user) => {
-  user.fullName = `${user.name} ${user.surname}`;
-  delete user.name;
-  delete user.surname;
-  return user;
-});
+let usersMapped = users.map((user) => ({
+  fullName: `${user.name} ${user.surname}`,
+  id: user.id,
+}));
 
 alert(usersMapped[0].id); // 1
 alert(usersMapped[0].fullName); // John Smith
