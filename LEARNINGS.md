@@ -5,6 +5,49 @@ They reflect the concepts, best practices, and insights gained while completing 
 
 ---
 
+## Returning Objects from Arrow Functions
+
+When returning an **object literal** from a concise arrow function, you must wrap the object in parentheses.  
+Otherwise, JavaScript thinks the `{}` is a **function body**, not an object.
+
+**Why?**
+
+```js
+=> ({ ... }) // returns an object.
+
+=> { ... } // starts a function block.
+
+// Example:
+
+users.map(user => ({
+  fullName: `${user.name} ${user.surname}`,
+  id: user.id
+}));
+```
+
+## Mapping Objects Without Mutating Data
+
+When using `Array.map()`, always return **new objects** instead of modifying the originals.  
+Mutating the source array can cause hidden bugs, data loss, and unpredictable behavior—especially in larger apps.
+
+```js
+// Bad (mutates original objects):
+
+let usersMapped = users.map((u) => {
+  u.fullName = `${u.name} ${u.surname}`;
+  delete u.name;
+  delete u.surname;
+  return u;
+});
+
+// GOOD (doesn't mutates original objects):
+
+let usersMapped = users.map((u) => ({
+  fullName: `${u.name} ${u.surname}`,
+  id: u.id,
+}));
+```
+
 ## Dynamically Adding Object Properties with Bracket Notation
 
 - **Bracket notation** allows you to set both **property values** and **property names** dynamically.
