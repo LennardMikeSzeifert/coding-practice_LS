@@ -5,6 +5,40 @@ They reflect the concepts, best practices, and insights gained while completing 
 
 ---
 
+## Using `reduce()` to Build Objects from Arrays
+
+- `reduce()` can be used to **transform an array into an object**, not just to sum numbers.
+- The **accumulator** can be an object that is built up step by step.
+- On each iteration:
+  - Add a new property to the accumulator.
+  - **Always return the accumulator**, so it carries over to the next iteration.
+- Start `reduce()` with an **empty object `{}`** when you want to build one.
+- This pattern is ideal for **grouping or indexing data by an ID** without mutating the original array.
+
+```js
+return arr.reduce((acc, item) => {
+  acc[item.id] = item;
+  return acc;
+}, {});
+
+// Example
+
+let users = [
+  { id: "john", name: "John Smith", age: 20 },
+  { id: "ann", name: "Ann Smith", age: 24 },
+  { id: "pete", name: "Pete Peterson", age: 31 },
+];
+
+function groupById(arr) {
+  return arr.reduce((object, currentItem) => {
+    object[currentItem.id] = currentItem;
+    return object;
+  }, {});
+}
+
+let usersById = groupById(users);
+```
+
 ## Returning Objects from Arrow Functions
 
 When returning an **object literal** from a concise arrow function, you must wrap the object in parentheses.  
