@@ -5,6 +5,63 @@ They reflect the concepts, best practices, and insights gained while completing 
 
 ---
 
+## Getting the Current Date and Year in JavaScript
+
+- JavaScript provides the built-in `Date` object to work with dates and times.
+- Creating a new `Date()` without arguments gives the **current date and time**.
+- You can extract specific parts (like the year) using helper methods.
+
+```js
+// Examples
+
+// Current date and time
+console.log(new Date());
+
+// Current year
+console.log(new Date().getFullYear());
+```
+
+## Counting Occurrences in an Array with `reduce()`
+
+- `reduce()` can be used to **count how many times each value appears** in an array.
+- The accumulator is an **object** where:
+  - keys = array values
+  - values = number of occurrences
+- If a key doesn’t exist yet, initialize it before incrementing.
+
+```js
+// Example
+
+const instancesSummedUp = data.reduce((obj, item) => {
+  if (!obj[item]) {
+    obj[item] = 0;
+  }
+  obj[item]++;
+  return obj;
+}, {});
+
+console.log(instancesSummedUp);
+```
+
+## Array Destructuring in JavaScript (Creating Multiple Variables at Once)
+
+- JavaScript allows you to **extract multiple values from an array in one step** using **array destructuring**.
+- The variables are assigned based on **position**, not names.
+- This is commonly used with methods like `split()` that return arrays.
+- You can ignore values you don’t need — unused variables are harmless.
+
+```js
+// Example
+
+const fullName = "Beethoven, Ludwig";
+
+// split() returns an array: ["Beethoven", "Ludwig"]
+const [lastName, firstName] = fullName.split(", ");
+
+console.log(lastName); // "Beethoven"
+console.log(firstName); // "Ludwig"
+```
+
 ## Using `reduce()` to Build Objects from Arrays
 
 - `reduce()` can be used to **transform an array into an object**, not just to sum numbers.
