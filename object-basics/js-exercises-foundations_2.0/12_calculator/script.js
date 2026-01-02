@@ -18,12 +18,12 @@ const power = function (base, exponent) {
   return base ** exponent;
 };
 
-const factorial = function (num) {
-  const factoArr = [];
-  for (let i = num; i > 0; i--) {
-    factoArr.push(i);
+const factorial = function (n) {
+  let product = 1;
+  for (let i = n; i > 0; i--) {
+    product *= i;
   }
-  return factoArr.reduce((product, current) => (product *= current), 1);
+  return product;
 };
 
 // Do not edit below this line
