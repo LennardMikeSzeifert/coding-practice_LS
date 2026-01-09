@@ -5,6 +5,39 @@ They reflect the concepts, best practices, and insights gained while completing 
 
 ---
 
+## Palindromes – Key Learnings
+
+- A palindrome reads the same **forwards and backwards**.
+- Always **normalize input first**:
+  - Convert to lowercase
+  - Remove punctuation, spaces, and symbols
+- Prefer **keeping valid characters** (letters/numbers) instead of excluding specific ones.
+- Use built-in methods when possible:
+  - `split("")`, `reverse()`, `join("")`
+- Compare the cleaned string with its reversed version.
+- Aim for **clear, declarative code** over manual step-by-step logic.
+
+## Accumulative Problems in JavaScript
+
+- When a problem is **accumulative** (e.g. `sum`, `product`, `max`, `min`), you usually do **not** need an array.
+- The typical pattern is:
+  - A **running variable** (e.g. `total`, `product`)
+  - A **loop**
+  - An **update each iteration**
+
+```js
+// Example for a factorial
+const factorial = function (n) {
+  let product = 1;
+  for (let i = n; i > 0; i--) {
+    product *= i;
+  }
+  return product;
+};
+
+// for factorial(5): product === 120
+```
+
 ## Getting the Current Date and Year in JavaScript
 
 - JavaScript provides the built-in `Date` object to work with dates and times.
