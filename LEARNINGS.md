@@ -5,6 +5,38 @@ They reflect the concepts, best practices, and insights gained while completing 
 
 ---
 
+## Fibonacci task – Key Learnings
+
+- Fibonacci is an **iterative, accumulative problem**
+- Arrays can help while learning, but are **not required**
+- For accumulative problems (sum, product, Fibonacci):
+  - Keep **running variables**
+  - Update them each loop iteration
+- Always check the **right condition** (`array.length`, not the array itself)
+- Simpler code is safer: avoid unnecessary helper functions
+- Handle **edge cases explicitly** (e.g. `n <= 1`)
+
+💡 Biggest insight: Accumulative problems usually don’t need arrays.
+
+## GitHub Profile README
+
+You can create a special `README.md` that appears on your GitHub profile.
+
+How it works:
+
+- Create a **new repository**
+- The repository name must be **exactly your GitHub username**
+- Initialize it with a `README.md`
+- Whatever you write in that README is shown on your profile page
+
+Use it to:
+
+- Introduce yourself
+- Highlight skills, projects, and goals
+- Add links, badges, or stats
+
+💡 GitHub treats this repository as a profile showcase.
+
 ## Palindromes – Key Learnings
 
 - A palindrome reads the same **forwards and backwards**.
