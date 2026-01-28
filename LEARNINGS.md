@@ -5,6 +5,14 @@ They reflect the concepts, best practices, and insights gained while completing 
 
 ---
 
+## Finding the Oldest Person with `reduce`
+
+- `reduce` is ideal when you want to **find a single “best” item** (max/min) from an array.
+- Think of `reduce` as a **comparison loop**: keep a current winner and compare it to the next item.
+- Extract repeated logic (like age calculation) into a **helper function** to improve clarity and reuse.
+- `reduce` works best when **each iteration returns exactly one value** (often via a ternary).
+- Prefer **derived values over stored values**: calculate age when needed, don’t add or modify object properties.
+
 ## Fibonacci task – Key Learnings
 
 - Fibonacci is an **iterative, accumulative problem**
@@ -477,7 +485,6 @@ let user = {
 ## Creating an Empty Object in JavaScript
 
 - JavaScript provides two ways to create an empty object:
-
   - **Object constructor syntax**
     ```js
     let obj = new Object();
@@ -526,7 +533,6 @@ This is **destructive** — you lose the commit and all its changes. Only use it
 - Rebasing updates your branch so it _appears as if it was created from the newest main_, keeping history tidy.
 
 - Typical clean workflow:
-
   1. Create a feature branch:
      `git checkout -b newFeature`
   2. Work normally on that branch.
@@ -550,7 +556,6 @@ This is **destructive** — you lose the commit and all its changes. Only use it
 
 - `git pull` updates your **local branch** by bringing in the newest changes from the remote **and** automatically merging them into your working files.
 - It’s actually two commands in one:
-
   - `git fetch` (get the newest changes)
   - `git merge` (add them into your current branch)
 
@@ -569,7 +574,6 @@ This is **destructive** — you lose the commit and all its changes. Only use it
 
 - `git fetch` updates your **local view of the remote repository** without changing your working files or your current branch.
 - It downloads:
-
   - New commits from the remote
   - Updated remote branches (e.g., `origin/main`)
 
@@ -590,7 +594,6 @@ This is **destructive** — you lose the commit and all its changes. Only use it
 
 - `git rebase -i` (interactive rebase) allows you to **edit your commit history** before pushing changes.
 - You can:
-
   - **Reword** commit messages to make them clearer.
   - **Squash** several small commits into one clean commit.
   - **Reorder** commits for a more logical history.
